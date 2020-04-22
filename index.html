@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+
+	<title>GoHub</title>
+	<meta name="description" content="GoHub it a Vue JS project.">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+
+	<!-- Normalize -->
+	<link rel="stylesheet" href="css/normalize.css">
+
+	<!-- CSS Style -->
+	<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+<div id="gohub">
+	<header class="header">
+		<div class="container">
+
+			<div class="heading">
+				<div class="logo">
+					<a href=""><img src="./img/logo-header.png" alt="Go Hub"></a>
+				</div>
+
+				<div class="nav-bar">
+					<nav>
+						<ul class="menu">
+							<li class="menu__item" v-for="item in menu_items"><a :class="item.class" :href="item.link">{{item.title}}</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<div class="row">
+				<div class="greeting col-12">
+					<h1>Balance agility with stability!</h1>
+					<p>Gohub monitors application stability, so you can make data-driven decisions on whether you should be building new features, or fixing bugs.</p>
+					<div class="get-started d-flex align-items-center row">
+						<div class="col-4">
+							<button class="get-btn" @click="modalVisible = true" type="button" name="button">Get Started</button>
+						</div>
+						<div class="col-8">
+							<a class="talkto" href="#">Questions? Talk to our team →</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section class="features">
+		<div class="container">
+			<div class="feature__block d-flex flex-wrap justify-content-between row">
+				<div class="feature__head d-flex flex-column justify-content-end col-lg-6 col-md-12">
+					<h2>Improve the stability of your application</h2>
+					<p>Bugsnag monitors application stability, so you can make data-driven decisions on whether you should be building new features, or fixing bugs.</p>
+				</div>
+				<div class="feature__card col-lg-6 col-md-12" v-for="card in fcard">
+					<img :src="card.img" alt="">
+					<h3>{{ card.title }}</h3>
+					<p class="description">{{ card.desc }}</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="proofs">
+		<div class="container">
+			<div class="proofs__heading text-center">
+				<h2>Proof makes increasing conversions simple</h2>
+				<p class="proofs__desc">Getting a conversion boost didn’t used to be this easy. Luckily, you found Proof.<br/>Now you have the tools to let your customer do the selling for you.</p>
+			</div>
+			<div class="proofs-list row d-flex justify-content-center align-items-center flex-xs-column">
+				<div class="proofs-list__item col-lg-3 text-center" v-for="item in proofs_items">
+					<img :src="item.img" alt="" class="icon mb-5">
+					<div class="proofs__title h4 mb-3">{{item.title}}</div>
+					<p class="proofs__desc description">{{item.desc}}</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="get-started__section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="h2 mb-5">Your safety is always a top priority</div>
+					<p>We’re committed to helping drivers and riders get where they want to go with confidence.</p>
+					<div class="get-started__options-wrap row mt-5 mb-5">
+						<div class="get-started__options col-6">
+							<div class="h3">Drive</div>
+							<p class="description">Drive when you want. Find opportunities around you.</p>
+						</div>
+						<div class="get-started__options col-6">
+							<div class="h3">Ride</div>
+							<p class="description">Tap your phone. Get where you're headed.</p>
+						</div>
+					</div>
+					<div class="get-btn__block row">
+						<div class="col-4">
+							<button class="get-btn" @click="modalVisible = true">Get started</button>
+						</div>
+						<div class="col-8 d-flex align-items-center">
+							<a class="talkto" href="#">Questions? Talk to our team →</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 get-started__first-bg">
+					<div class=""></div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-6 get-started__second-bg"></div>
+				<div class="col-lg-6">
+					<div class="h2 mb-5">Move the way you want<br/>Doors are always opening</div>
+					<p>Opportunity is everywhere. Get out there and find it with Uber.</p>
+					<div class="get-started__options-wrap row mt-5 mb-5">
+						<div class="get-started__options col-6">
+							<div class="h3">Drive</div>
+							<p class="description">Drive when you want. Find opportunities around you.</p>
+						</div>
+						<div class="get-started__options col-6">
+							<div class="h3">Ride</div>
+							<p class="description">Tap your phone. Get where you're headed.</p>
+						</div>
+					</div>
+					<div class="get-btn__block row d-flex">
+						<div class="col-4">
+							<button class="get-btn" @click="modalVisible = true">Get started</button>
+						</div>
+						<div class="col-8 d-flex align-items-center">
+							<a class="talkto" href="#">Questions? Talk to our team →</a>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+
+	<section class="finance">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					<div class="h2 mb-5">Your finances on auto-pilot</div>
+					<p class="finance__p">With Qonto, admin hassle are over! Unlimited history, auto-categorised transactions, simplified transfers entries, budgets, history exportable for accounting... and the list goes on!</p>
+					<dl>
+						<dt>Save time</dt>
+						<dd>Intuitive process and simple interface</dd>
+						<dd>Online and paperless</dd>
+						<dd>Real-time notifications</dd>
+					</dl>
+				</div>
+				<div class="col-lg-6 col-md-0 finance-bg"></div>
+			</div>
+
+			<div class="row d-flex justify-content-between">
+				<div class="col-lg-7 col-md-12">
+					<dl>
+						<dt>Monitor your expenses</dt>
+						<dd>Specific access/rights by users</dd>
+						<dd>Physical and virtual Mastercards with adjustable payment limits</dd>
+						<dd>Dashboards to follow-up on your expenses</dd>
+					</dl>
+				</div>
+				<div class="col-lg-5 col-md-12">
+					<dl>
+						<dt>Make accounting easier</dt>
+						<dd>Unlimited history</dd>
+						<dd>Read-only access for your accountant.</dd>
+						<dd>Plug-and-play exports for accounting tools</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="subscribe">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					<div class="markers mb-5"></div>
+					<div class="h2 mb-5">Ready to get started?</div>
+					<p>Get a guided demo with an OKR expert.</p>
+				</div>
+				<div class="col-lg-6 col-md-12">
+					<div class="d-flex align-items-center align-items-md-center justify-content-end justify-content-md-center h-100">
+						<form id="subscribe" class="w-100" @submit.prevent="onSubmit">
+							<input v-model="email" class="subscribe-email" type="email" placeholder="Email address">
+							<button class="subscribe-submit d-flex align-items-center" type="submit">Get Started <i class="enter"></i></button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="footer">
+		<div class="container">
+			<div class="row footer-row__one d-flex">
+				<div class="col-lg-3 col-md-12 footer-contacts">
+					<div class="footer-logo mb-5"><img src="img/logo-footer.png" alt=""></div>
+					<div class="contacts">
+						<div class="phone mb-5">
+							<div class="pb-1"><a href="tel:+49 30 555 7322 77">EU: +49 30 555 7322 77</a></div>
+							<div class="pt-1"><a href="tel:+1-415-800-4497">US: +1-415-800-4497</a></div>
+						</div>
+						<div class="email mb-5"><a href="malto:info@gohub.ee">info@gohub.ee</a></div>
+						<div class="social">
+							<a href=""><linked-in></linked-in></a>
+							<a href=""><fb></fb></a>
+							<a href=""><twitter></twitter></a></a>
+							<a href=""><github></github></a>
+						</div>
+					</div>
+				</div>
+				
+					<ul class="col-lg-3 col-md-12 footer-list" v-for="(list, index) in footer_menu">
+						<li class="footer-list__item" v-for="item in list.links"><a href="">{{item}}</a></li>
+					</ul>
+				
+			</div>
+
+			<div class="row footer-row__two">
+				<div class="col-lg-4 col-md-12 copy">
+					<div class="copyright">&copy; 2020 Uber Technologies Inc.</div>
+				</div>
+				<div class="col-lg-8 col-sm-12">
+					<div class="policy">
+						<ul class="d-flex justify-content-end policy-list">
+							<li><a href="">Privacy</a></li>
+							<li><a href="">Accessibility</a></li>
+							<li><a href="">Terms</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<template v-if="modalVisible">
+		<div class="modal-overlay">
+			<div class="modal-wrapper">
+				<form method="post" id="modal" @submit.prevent="onSubmit">
+					<template v-if="isDone != true">
+					<div class="h1">Contact Us!</div>
+					<button id="close" @click="modalVisible = false" title="Close">
+						<span></span>
+						<span></span>
+					</button>
+					<input class="modal-input" v-model="name" type="text" name="name" placeholder="Name" required>
+					<input class="modal-input" v-model="email" type="email" name="email" placeholder="Email address" required>
+					<input class="modal-input" v-model="phone" type="phone" name="phone" placeholder="Phone number" required>
+					<div class="policy-modal-block d-flex justify-content-center align-items-center mt-5">
+						<div class="agree-block">
+							<input id="modal-agree" v-model="agree" type="checkbox" name="agree" value="I agree with Privace Policy" hidden>
+							<label class="agree-label" for="modal-agree"></label>
+						</div>
+							<p class="p-policy">I agree with Privace Policy</p>
+						
+					</div>
+
+					<button class="modal-submit d-flex justify-content-center align-items-center mt-5" type="submit">Submit</button>
+					</template>
+
+					<template v-else>
+						<div class="h1">Thank you!</div>
+						<button id="close" @click="modalVisible = false" title="Close">
+							<span></span>
+							<span></span>
+						</button>
+					</template>
+				</form>
+			</div>
+		</div>
+	</template>
+	</footer>
+</div>
+</body>
+
+<script src="./js/vue.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- Script JS -->
+<script src="js/script.js"></script>
+</body>
+</html>

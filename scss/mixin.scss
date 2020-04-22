@@ -1,0 +1,35 @@
+@mixin font ($mainFontSize, $fontW, $color) {
+  font-size: $mainFontSize;
+  font-weight: $fontW;
+  color: $color;
+}
+
+@mixin flex ($flex-flow, $justify, $align-items) {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+
+  flex-flow: $flex-flow;
+  justify-content: $justify;
+  align-items: $align-items;
+}
+
+@mixin padd($padd...) {
+  padding: $padd;
+}
+
+@mixin link ($link, $hover, $active, $visited) {
+  color: $link;
+
+  &:hover {
+    color: $hover;
+  }
+
+  &:active {
+    color: $active;
+  }
+
+  &:visited {
+    color: $visited;
+  }
+}
