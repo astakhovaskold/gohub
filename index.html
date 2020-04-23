@@ -45,11 +45,11 @@
 				<div class="greeting col-12">
 					<h1>Balance agility with stability!</h1>
 					<p>Gohub monitors application stability, so you can make data-driven decisions on whether you should be building new features, or fixing bugs.</p>
-					<div class="get-started d-flex align-items-center row">
-						<div class="col-4">
+					<div class="get-started align-items-center row">
+						<div class="col-lg-4">
 							<button class="get-btn" @click="modalVisible = true" type="button" name="button">Get Started</button>
 						</div>
-						<div class="col-8">
+						<div class="col-lg-8">
 							<a class="talkto" href="#">Questions? Talk to our team →</a>
 						</div>
 					</div>
@@ -107,10 +107,10 @@
 						</div>
 					</div>
 					<div class="get-btn__block row">
-						<div class="col-4">
+						<div class="col-lg-4">
 							<button class="get-btn" @click="modalVisible = true">Get started</button>
 						</div>
-						<div class="col-8 d-flex align-items-center">
+						<div class="col-lg-8 d-flex align-items-center">
 							<a class="talkto" href="#">Questions? Talk to our team →</a>
 						</div>
 					</div>
@@ -135,11 +135,11 @@
 							<p class="description">Tap your phone. Get where you're headed.</p>
 						</div>
 					</div>
-					<div class="get-btn__block row d-flex">
-						<div class="col-4">
+					<div class="get-btn__block row d-flex flex-wrap">
+						<div class="col-lg-4">
 							<button class="get-btn" @click="modalVisible = true">Get started</button>
 						</div>
-						<div class="col-8 d-flex align-items-center">
+						<div class="col-lg-8 d-flex align-items-center">
 							<a class="talkto" href="#">Questions? Talk to our team →</a>
 						</div>
 					</div>
@@ -258,9 +258,9 @@
 						<span></span>
 						<span></span>
 					</button>
-					<input class="modal-input" v-model="name" type="text" name="name" placeholder="Name" required>
-					<input class="modal-input" v-model="email" type="email" name="email" placeholder="Email address" required>
-					<input class="modal-input" v-model="phone" type="phone" name="phone" placeholder="Phone number" required>
+					<input class="modal-input" :class="{invalid: active}" v-model="name" type="text" name="name" placeholder="Name" required>
+					<input class="modal-input" :class="{invalid: active}" v-model="email" type="email" name="email" placeholder="Email address" required>
+					<input class="modal-input" :class="{invalid: active}" v-model="phone" type="phone" name="phone" placeholder="Phone number" required>
 					<div class="policy-modal-block d-flex justify-content-center align-items-center mt-5">
 						<div class="agree-block">
 							<input id="modal-agree" v-model="agree" type="checkbox" name="agree" value="I agree with Privace Policy" hidden>
@@ -270,12 +270,12 @@
 						
 					</div>
 
-					<button class="modal-submit d-flex justify-content-center align-items-center mt-5" type="submit">Submit</button>
+					<button class="modal-submit d-flex justify-content-center align-items-center mt-5" type="submit" id="modal-submit">Submit</button>
 					</template>
 
 					<template v-else>
 						<div class="h1">Thank you!</div>
-						<button id="close" @click="modalVisible = false" title="Close">
+						<button id="close" @click="modalVisible = false, isDone = false" title="Close">
 							<span></span>
 							<span></span>
 						</button>
